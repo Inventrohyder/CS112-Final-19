@@ -8,7 +8,40 @@ This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute
 Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
 
 ```{r}
-plot(cars)
+### Code for "Democratization and Economic Output in Sub-Saharan Africa"
+### Daniel De Kadt and Stephen B. Wittels
+
+## A note to users:
+## Use setwd() to set the working directory to the location where data files are saved. 
+## Figures are programmed to be saved automatically to the working directory.
+## They are named according to their figure number in the paper.
+## The three tables in the paper are saved as the objects "mali.weights," "panel.estimates," and
+## "moderators." Code to print these objects to the console is included at the end.
+
+
+## Options and Libraries
+options(scipen = 6, digits = 3)
+
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(foreign, 
+  Synth, 
+  xtable, 
+  rgenoud, 
+  reshape2, 
+  quadprog, 
+  ucminf, 
+  Rcgmin, 
+  Rvmmin, 
+  minqa, 
+  Rcpp, 
+  ggplot2, 
+  plyr, 
+  grid, 
+  lme4,
+  janitor
+  CausalImpact  # For use in the extension
+)
+
 ```
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
@@ -16,4 +49,352 @@ Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by press
 When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
 
 The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+```{r}
+## Data
+load("afripanel_wdk_final.RData")
+a <- read.csv("conditioning_variables1.csv")
+panel.reg <- read.dta("panel.reg1.dta")
+```
+
+```{r}
+pre.period <- as.Date(c("1965", "1991"), "%Y")
+post.period <- as.Date(c("1992", "2008"), "%Y")
+```
+
+```{r}
+
+mali_data <- afripanel[which(afripanel$Country == "Mali"), ]
+```
+
+
+```{r}
+mali_data <- mali_data[c('year', 'lngdpmad', 'wbcode2')]
+mali_data <- na.omit(mali_data)
+
+head(mali_data)
+```
+
+
+```{r}
+x1 <- mali_data$wbcode2
+y <- mali_data$lngdpmad
+time.points <- as.Date(as.character(mali_data$year), "%Y")
+
+data <- zoo(cbind(y, x1), time.points)
+```
+```{r}
+matplot(data, type = "l")
+```
+```{r}
+pre.period <- as.Date(c("1965", "1991"), "%Y")
+post.period <- as.Date(c("1992", "2008"), "%Y")
+```
+```{r}
+impact <- CausalImpact(data, pre.period, post.period)
+```
+```{r}
+plot(impact)
+```
+```{r}
+summary(impact)
+```
+```{r}
+### Custom Model
+post.period <- c(30, 44)
+post.period.response <- y[post.period[1] : post.period[2]]
+y[post.period[1] : post.period[2]] <- NA
+```
+```{r}
+ss <- AddLocalLevel(list(), y)
+bsts.model <- bsts(y ~ x1, ss, niter = 1000)
+```
+
+```{r}
+impact <- CausalImpact(bsts.model = bsts.model,post.period.response = post.period.response)
+```
+```{r}
+set.seed(1)
+x1 <- 100 + arima.sim(model = list(ar = 0.999), n = 100)
+y <- 1.2 * x1 + rnorm(100)
+y[71:100] <- y[71:100] + 10
+data <- cbind(y, x1)
+```
+```{r}
+pre.period <- c(1, 70)
+post.period <- c(71, 100)
+post.period.response <- y[post.period[1] : post.period[2]]
+y[post.period[1] : post.period[2]] <- NA
+```
+```{r}
+ss <- AddLocalLevel(list(), y)
+bsts.model <- bsts(y ~ x1, ss, niter = 1000)
+```
+
+```{r}
+impact <- CausalImpact(bsts.model = bsts.model,
+                       post.period.response = post.period.response)
+```
+```{r}
+plot(impact)
+summary(impact)
+summary(impact, "report")
+```
+```{r}
+x1 <- mali_data$wbcode2
+y <- mali_data$lngdpmad
+
+cow <- cbind(y, x1)
+```
+```{r}
+pre.period <- c(1, 25)
+post.period <- c(26, 44)
+post.period.response <- y[post.period[1] : post.period[2]]
+y[post.period[1] : post.period[2]] <- NA
+```
+
+```{r}
+ss <- AddLocalLevel(list(), y)
+bsts.model <- bsts(y ~ x1, ss, niter = 1000)
+```
+
+```{r}
+impact <- CausalImpact(bsts.model = bsts.model,
+                       post.period.response = post.period.response)
+```
+```{r}
+plot(impact)
+summary(impact)
+summary(impact, "report")
+```
+
+
+```{r}
+### Changing variables
+```
+```{r}
+data <- mali_data[,c('lngdpmad', 'wbcode2') ]
+```
+```{r}
+pre.period <- c(1, 25)
+post.period <- c(26, 44)
+post.period.response <- data$lngdpmad[post.period[1] : post.period[2]]
+data$lngdpmad[post.period[1] : post.period[2]] <- NA
+```
+
+```{r}
+ss <- AddLocalLevel(list(), data$lngdpmad)
+bsts.model <- bsts(lngdpmad ~ wbcode2, ss, niter = 1000, data = data)
+```
+
+```{r}
+impact <- CausalImpact(bsts.model = bsts.model,
+                       post.period.response = post.period.response)
+```
+```{r}
+plot(impact)
+summary(impact)
+summary(impact, "report")
+```
+```{r}
+### Using date periods
+```
+```{r}
+time.points <- as.Date(as.character(mali_data$year), "%Y")
+
+data <- zoo(cbind(mali_data[,c('lngdpmad', 'wbcode2') ]), time.points)
+```
+```{r}
+pre.period <- as.Date(c("1965", "1991"), "%Y")
+post.period <- as.Date(c("1992", "2008"), "%Y")
+```
+```{r}
+post.period.response <- as.vector(data[index(data) >= post.period[1] & index(data) < post.period[2]]$lngdpmad)
+```
+```{r}
+data[index(data) >= post.period[1]] <- NA
+```
+
+```{r}
+ss <- AddLocalLevel(list(), data$lngdpmad)
+bsts.model <- bsts(lngdpmad ~ ., ss, niter = 1000, data = data)
+```
+
+```{r}
+impact <- CausalImpact(bsts.model = bsts.model,
+                       post.period.response = post.period.response)
+```
+```{r}
+plot(impact)
+summary(impact)
+summary(impact, "report")
+```
+
+```{r}
+impact_vw <- CausalImpact(data, 
+                          pre.period, 
+                          post.period, 
+                          model.args = list(
+                            niter = 1000, 
+                            nseasons = 52)
+                          )
+plot(impact_vw)
+```
+
+```{r}
+predictors=c(
+      "lngdpmadlag",
+      "lngdpmadlag2",
+      "lngdpmadlag3",
+      "lngdpmadlag4",
+      "lnpop",
+      "ki",
+      "openk",
+      "civwar",
+      "civwarend",
+      "pwt_xrate",
+      "pwt_xrate_lag1",
+      "pwt_xrate_lag2",
+      "pwt_xrate_lag3",
+      "eximdiff",
+      "eximdiff_lag1",
+      "eximdiff_lag2",
+      "wbank",
+      "wbank_lag1",
+      "wbank_lag2",
+      "imfadj",
+      "imfadj_lag1",
+      "imfadj_lag2"
+    )
+
+
+```
+```{r}
+options(warn = -1)
+#install.packages("tseries")
+library(tseries)
+#install.packages("ggplot2")
+library(ggplot2)
+#devtools::install_github("google/CausalImpact")
+library(CausalImpact)
+```
+
+
+
+```{r}
+start = "2011-01-03"
+  end = "2017-03-20"
+quote = "AdjClose"
+VolksWagen <- get.hist.quote(instrument = "VOW.DE", start, end, quote, compression = "w")
+BMW <- get.hist.quote(instrument = "BMW.DE", start, end, quote, compression = "w")
+Allianz <- get.hist.quote(instrument = "ALV.DE", start, end, quote, compression = "w")
+series <- cbind(VolksWagen, BMW, Allianz)
+```
+```{r}
+colnames(series) <- c("VolksWagen", "BMW", "Allianz")
+autoplot(series, facet = NULL) + xlab("") + ylab("Adjusted Close Price")
+```
+```{r}
+pre.period <- as.Date(c(start, "2015-09-14"))
+post.period <- as.Date(c("2015-09-21", end))
+```
+```{r}
+impact_vw <- CausalImpact(series[, 1], pre.period, post.period, model.args = list(niter = 1000, nseasons = 52))
+plot(impact_vw)
+```
+```{r}
+impact_vw_reg <- CausalImpact(series, pre.period, post.period, model.args = list(niter = 1000, nseasons = 52))
+plot(impact_vw_reg)
+```
+```{r}
+time.points <- as.Date(as.character(afripanel$year), "%Y")
+foo <- zoo(afripanel, time.points)
+```
+
+```{r}
+not_any_na <- function(x) all(!is.na(x))
+```
+```{r}
+show_impact <- function(
+  Country,
+  treatYear
+){
+  data <- afripanel[which(afripanel$Country == Country), ]
+  predictors=c(
+      "lngdpmadlag",
+      "lngdpmadlag2",
+      "lngdpmadlag3",
+      "lngdpmadlag4",
+      "lnpop",
+      "ki",
+      "openk",
+      "civwar",
+      "civwarend",
+      "pwt_xrate",
+      "pwt_xrate_lag1",
+      "pwt_xrate_lag2",
+      "pwt_xrate_lag3",
+      "eximdiff",
+      "eximdiff_lag1",
+      "eximdiff_lag2",
+      "wbank",
+      "wbank_lag1",
+      "wbank_lag2",
+      "imfadj",
+      "imfadj_lag1",
+      "imfadj_lag2"
+  )
+
+  outcome <- 'lngdpmad'
+  time.points <- as.Date(as.character(data$year), "%Y")
+  
+  data <- data[, c(outcome, predictors)]
+  data<-data[!is.na(data[outcome]),]
+  data <- data %>% select_if(not_any_na)
+  
+  
+  data <- zoo(data, time.points)
+  
+  nextYear <- as.Date(as.character(as.numeric(treatYear) + 1), "%Y")
+  treatYear <- as.Date(treatYear, "%Y")
+  
+  start_date <- start(data)
+  end_date <- end(data)
+  
+  pre.period <- as.Date(c(start_date, treatYear))
+  post.period <- as.Date(c(nextYear, end_date))
+  
+  impact <- CausalImpact(data, 
+                          pre.period, 
+                          post.period, 
+                          model.args = list(
+                            niter = 1000, 
+                            nseasons = 52)
+                          )
+  return(impact)
+}
+```
+```{r}
+impact <- show_impact('Mali', '1990')
+plot(impact)
+```
+
+```{r}
+plot(show_impact('Burundi', '1990'))
+```
+```{r}
+impact <- show_impact('Mali', '1985')
+plot(impact)
+```
+```{r}
+plot(impact, "original") + ylim(6, 7.5)
+```
+
+
+
+
+
+
+
+
+
 
