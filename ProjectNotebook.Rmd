@@ -389,8 +389,74 @@ plot(impact)
 plot(impact, "original") + ylim(6, 7.5)
 ```
 
+```{r}
+show_impact_n <- function(
+  Country,
+  begin,
+  end,
+  treatYear
+){
+  data <- afripanel[which(afripanel$Country == Country), ]
+  predictors=c(
+      "lngdpmadlag",
+      "lngdpmadlag2",
+      "lngdpmadlag3",
+      "lngdpmadlag4",
+      "lnpop",
+      "ki",
+      "openk",
+      "civwar",
+      "civwarend",
+      "pwt_xrate",
+      "pwt_xrate_lag1",
+      "pwt_xrate_lag2",
+      "pwt_xrate_lag3",
+      "eximdiff",
+      "eximdiff_lag1",
+      "eximdiff_lag2",
+      "wbank",
+      "wbank_lag1",
+      "wbank_lag2",
+      "imfadj",
+      "imfadj_lag1",
+      "imfadj_lag2"
+  )
 
+  outcome <- 'lngdpmad'
+  time.points <- as.Date(as.character(data$year), "%Y")
+  
+  data <- data[, c(outcome, predictors)]
+  data<-data[!is.na(data[outcome]),]
+  data <- data %>% select_if(not_any_na)
+  
+  
+  data <- zoo(data, time.points)
+  data <- data[index(data) > as.Date(begin, '%Y') & index(data) < as.Date(end, '%Y')]
+  
+  nextYear <- as.Date(as.character(as.numeric(treatYear) + 1), "%Y")
+  treatYear <- as.Date(treatYear, "%Y")
+  
+  start_date <- start(data)
+  end_date <- end(data)
+  
+  pre.period <- as.Date(c(start_date, treatYear))
+  post.period <- as.Date(c(nextYear, end_date))
+  
+  impact <- CausalImpact(data, 
+                          pre.period, 
+                          post.period, 
+                          model.args = list(
+                            niter = 1000, 
+                            nseasons = 52)
+                          )
+  return(impact)
+}
+```
 
+```{r}
+impact <- show_impact_n('Mali', '1980', '2005', '1990')
+plot(impact)
+```
 
 
 
