@@ -342,13 +342,13 @@ legend("topleft",bty="n",legend=c("Togo","Synthetic counterfactual"),
 abline(v=1990,lwd=2,lty=3)
 graphics.off()
 
-togo.weights <- round(paths[[2]]$solution.w,2)
+bfaso.weights <- round(paths[[2]]$solution.w,2)
 country.names <- tapply(afripanel$Country,afripanel$wbcode2,unique)
-rows <- unname(sapply(rownames(togo.weights),function(x){country.names[names(country.names)%in%x]}))
-togo.weights <- data.frame(rows,togo.weights)
-togo.weights <-togo.weights[order(togo.weights[,2],decreasing=T),]
-togo.weights <- togo.weights[which(togo.weights[,2]!=0),]
-colnames(togo.weights) <- c("Contribution","Weights")
+rows <- unname(sapply(rownames(bfaso.weights),function(x){country.names[names(country.names)%in%x]}))
+bfaso.weights <- data.frame(rows,bfaso.weights)
+bfaso.weights <-bfaso.weights[order(bfaso.weights[,2],decreasing=T),]
+bfaso.weights <- bfaso.weights[which(bfaso.weights[,2]!=0),]
+colnames(bfaso.weights) <- c("Contribution","Weights")
 ```
 
 ## Extensions
