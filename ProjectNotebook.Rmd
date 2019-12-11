@@ -454,7 +454,7 @@ show_impact_n <- function(
 ```
 
 ```{r}
-impact <- show_impact_n('Mali', '1980', '2005', '1990')
+impact <- show_impact_n('Mali', '1980', '2005', '1989')
 plot(impact)
 ```
 
