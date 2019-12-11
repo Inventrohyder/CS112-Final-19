@@ -421,15 +421,18 @@ show_impact_n <- function(
 
 ```{r}
 impact <- show_impact_n('Mali', '1980', '2005', '1990')
-plot(impact)
+plot(impact) + 
+  ggtitle("Causal Impact on Mali beyond 1991")
 ```
 ```{r}
 impact <- show_impact_n('Mali', '1980', '2005', '1985')
-plot(impact)
+plot(impact) + 
+  ggtitle("Causal Impact on Mali beyond 1985")
 ```
 ```{r}
 impact <- show_impact_n('Burkina Faso', '1980', '2005', '1990')
-plot(impact)
+plot(impact) + 
+  ggtitle("Causal Impact on Burkina Faso beyond 1990")
 ```
 
 
