@@ -1,4 +1,0 @@
-afripanel_wdk_final.RData (application/x-rlang-transport) 446416 bytes.
-conditioning_variables1.csv (text/csv) 681 bytes.
-panel.reg1.dta (application/x-stata) 1012040 bytes.
-psrm_submission_code.R (type/x-r-syntax) 28056 bytes.
