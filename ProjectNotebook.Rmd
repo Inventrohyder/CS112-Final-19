@@ -165,10 +165,7 @@ synth.wdk2.paths <- function(
       "pwt_xrate_lag3",
       "eximdiff",
       "eximdiff_lag1",
-      "eximdiff_lag2",
-      "wbank",
-      "wbank_lag1",
-      "wbank_lag2"
+      "eximdiff_lag2"
     ),
     dependent="lngdpmad",
     unit.variable="wbcode2",
@@ -184,7 +181,7 @@ synth.wdk2.paths <- function(
   out <- synth(prep)
   
   path.plot(synth.res=out, dataprep.res=prep,
-            Ylab="Log GDP per capita", Legend=NA, tr.intake=tr2,
+            Ylab="Log GDP per capita", Legend=c(fullname, "Synthetic Counterfactual"), tr.intake=tr2,
             Ylim=c(low,high) , Main=fullname
   )
   
