@@ -1,6 +1,8 @@
 ---
 title: "R Notebook"
-output: html_notebook
+output:
+  pdf_document: default
+  html_notebook: default
 ---
 
 ```{r}
@@ -47,6 +49,8 @@ pacman::p_load(foreign,
 load("afripanel_wdk_final.RData")
 a <- read.csv("conditioning_variables1.csv")
 panel.reg <- read.dta("panel.reg1.dta")
+
+not_any_na <- function(x) all(!is.na(x))
 ```
 
 ## Replication
@@ -128,86 +132,6 @@ synth.wdk1 <- function(
 ```
 
 ```{r}
-synth.wdk2 <- function(
-  unitID,
-  fullname,
-  begin,
-  end,
-  tr2,
-  final,
-  low,
-  high
-){
-  
-  data <- afripanel[afripanel$WBCode==unitID | afripanel$cont_dem_ind==1,]
-  
-  controls <- unique(data$WBCode[data$WBCode!=unitID&data$WBCode!="ETH"&data$WBCode!="SDN"])
-  
-  prep <- dataprep(
-    foo=data, 
-    predictors=c(
-      "lngdpmadlag",
-      "lngdpmadlag2",
-      "lngdpmadlag3",
-      "lngdpmadlag4",
-      "lnpop",
-      "ki",
-      "openk",
-      "civwar",
-      "civwarend",
-      "pwt_xrate",
-      "pwt_xrate_lag1",
-      "pwt_xrate_lag2",
-      "pwt_xrate_lag3",
-      "eximdiff",
-      "eximdiff_lag1",
-      "eximdiff_lag2",
-      "wbank",
-      "wbank_lag1",
-      "wbank_lag2",
-      "imfadj",
-      "imfadj_lag1",
-      "imfadj_lag2"
-    ),
-    dependent="lngdpmad",
-    unit.variable="wbcode2",
-    time.variable="year", 
-    treatment.identifier=unitID, 
-    controls.identifier=controls,          
-    time.predictors.prior=c(begin:end),
-    time.optimize.ssr=c(begin:tr2),
-    time.plot=c(begin:final),
-    unit.names.variable="WBCode"
-  )
-  
-  out <- synth(prep)
-  
-  path.plot(synth.res=out, dataprep.res=prep,
-            Ylab="Log GDP per capita", Legend=NA, tr.intake=tr2,
-            Ylim=c(low,high) , Main=fullname
-  )
-  
-  gap <- prep$Y1plot - (prep$Y0plot %*% 
-                          out$solution.w)
-  
-  colnames(gap) <- unitID
-  
-  synth.table <- synth.tab(dataprep.res=prep, synth.res=out)
-  
-  print(xtable(synth.table$tab.w))
-  
-  print(xtable(synth.table$tab.v))
-  
-  tab <- cbind(prep$X1,prep$X0%*%out$solution.w)
-  colnames(tab) <- c("Treated Unit","Synthetic Unit")
-  print(tab)
-  
-  return(gap)
-}
-
-```
-
-```{r}
 synth.wdk2.paths <- function(
   unitID,
   fullname,
@@ -241,13 +165,7 @@ synth.wdk2.paths <- function(
       "pwt_xrate_lag3",
       "eximdiff",
       "eximdiff_lag1",
-      "eximdiff_lag2",
-      "wbank",
-      "wbank_lag1",
-      "wbank_lag2",
-      "imfadj",
-      "imfadj_lag1",
-      "imfadj_lag2"
+      "eximdiff_lag2"
     ),
     dependent="lngdpmad",
     unit.variable="wbcode2",
@@ -263,7 +181,7 @@ synth.wdk2.paths <- function(
   out <- synth(prep)
   
   path.plot(synth.res=out, dataprep.res=prep,
-            Ylab="Log GDP per capita", Legend=NA, tr.intake=tr2,
+            Ylab="Log GDP per capita", Legend=c(fullname, "Synthetic Counterfactual"), tr.intake=tr2,
             Ylim=c(low,high) , Main=fullname
   )
   
@@ -286,6 +204,10 @@ synth.wdk2.paths <- function(
   
   return(list(paths,out))
 }
+```
+
+```{r}
+synth.wdk2.paths("MLI", "Mali", 1980, 1985, 1986, 2008, 6, 8)  
 ```
 
 
@@ -355,7 +277,6 @@ colnames(togo.weights) <- c("Contribution","Weights")
 
 ### Google Extension (CausalImpact)
 ```{r}
-not_any_na <- function(x) all(!is.na(x))
 show_impact_n <- function(
   Country,
   begin,
@@ -431,8 +352,3 @@ plot(impact)
 impact <- show_impact_n('Burkina Faso', '1980', '2005', '1990')
 plot(impact)
 ```
-
-
-
-
-
