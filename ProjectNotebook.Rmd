@@ -21,6 +21,7 @@ output:
 ## Options and Libraries
 options(scipen = 6, digits = 3)
 
+# Install necessary libraries
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(foreign, 
   Synth, 
@@ -57,6 +58,7 @@ not_any_na <- function(x) all(!is.na(x))
 ## Replication
 
 ```{r}
+# Replication function
 replicate <- function(
   unitID,
   fullname,
@@ -148,6 +150,7 @@ replicate("TGO", "Togo", 1980, 1990, 1991, 2008, 6, 8)
 
 ### Google Extension (CausalImpact)
 ```{r}
+# Replication function from Google Extension
 show_impact_n <- function(
   Country,
   begin,
@@ -174,10 +177,7 @@ show_impact_n <- function(
       "eximdiff_lag2",
       "wbank",
       "wbank_lag1",
-      "wbank_lag2",
-      "imfadj",
-      "imfadj_lag1",
-      "imfadj_lag2"
+      "wbank_lag2"
   )
 
   outcome <- 'lngdpmad'
@@ -202,7 +202,7 @@ show_impact_n <- function(
   
   impact <- CausalImpact(data, 
                           pre.period, 
-                          post.period, 
+                          post.period,
                           model.args = list(
                             niter = 1000, 
                             nseasons = 52)
@@ -210,19 +210,24 @@ show_impact_n <- function(
   return(impact)
 }
 ```
-
+# Graphs:
 ```{r}
 impact <- show_impact_n('Mali', '1980', '2005', '1990')
-plot(impact) + 
-  ggtitle("Causal Impact on Mali beyond 1991")
+plot(impact) + ggtitle ("Causal Impact on Mali beyond 1991")
 ```
 ```{r}
 impact <- show_impact_n('Mali', '1980', '2005', '1985')
-plot(impact) + 
-  ggtitle("Causal Impact on Mali beyond 1985")
+plot(impact) + ggtitle("Causal Impact on Mali beyond 1985")
 ```
 ```{r}
 impact <- show_impact_n('Burkina Faso', '1980', '2005', '1990')
-plot(impact) + 
-  ggtitle("Causal Impact on Burkina Faso beyond 1990")
+plot(impact) + ggtitle("Causal Impact on Burkina Faso beyond 1990")
+```
+```{r}
+impact <- show_impact_n('Mali', '1980', '2005', '1985')
+plot(impact) + ggtitle("In-time placebo (Mali)")
+```
+```{r}
+impact <- show_impact_n('Burkina Faso', '1980', '2005', '1990')
+plot(impact) + ggtitle("In-space placebo (Burkina Faso)")
 ```
