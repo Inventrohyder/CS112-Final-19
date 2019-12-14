@@ -8,13 +8,10 @@ output:
 ```{r}
 ### Code for "Democratization and Economic Output in Sub-Saharan Africa"
 ### Daniel De Kadt and Stephen B. Wittels
+### Then later Alma Gashi, Anosha Rahim and Haitham Alhad
 
 ## A note to users:
 ## Use setwd() to set the working directory to the location where data files are saved. 
-## Figures are programmed to be saved automatically to the working directory.
-## They are named according to their figure number in the paper.
-## The three tables in the paper are saved as the objects "mali.weights," "panel.estimates," and
-## "moderators." Code to print these objects to the console is included at the end.
 
 
 ## Options and Libraries
@@ -48,9 +45,6 @@ pacman::p_load(foreign,
 ```{r}
 ## Data
 load("afripanel_wdk_final.RData")
-a <- read.csv("conditioning_variables1.csv")
-panel.reg <- read.dta("panel.reg1.dta")
-
 not_any_na <- function(x) all(!is.na(x))
 ```
 
@@ -229,4 +223,24 @@ plot(impact) + ggtitle("In-time placebo (Mali)")
 ```{r}
 impact <- show_impact_n('Burkina Faso', '1980', '2005', '1990')
 plot(impact) + ggtitle("In-space placebo (Burkina Faso)")
+```
+```{r}
+impact <- show_impact_n('Chad', '1980', '2005', '1990')
+plot(impact) + ggtitle("In-space placebo (Chad)")
+```
+
+
+```{r}
+impact <- show_impact_n('Nigeria', '1980', '2005', '1990')
+plot(impact) + ggtitle("In-space placebo (Nigeria)")
+```
+
+```{r}
+impact <- show_impact_n('Burundi', '1980', '2005', '1990')
+plot(impact) + ggtitle("In-space placebo (Burundi)")
+```
+
+```{r}
+impact <- show_impact_n('Togo', '1980', '2005', '1990')
+plot(impact) + ggtitle("In-space placebo (Togo)")
 ```
