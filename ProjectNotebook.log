@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  14 DEC 2019 18:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  18 DEC 2019 14:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -631,19 +631,19 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 145.
 
-Overfull \vbox (1.758pt too high) detected at line 249
+Overfull \vbox (1.758pt too high) detected at line 248
  []
 
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Overfull \hbox (118.24327pt too wide) in paragraph at lines 305--305
+Overfull \hbox (118.24327pt too wide) in paragraph at lines 304--304
 []\T1/lmtt/m/n/10 ##  0.0836 0.123 0.125 0.156 0.14 0.0000143 0.127 0.0354 0.04
 25 0.0252 0.027 0.0301 0.033 0.000281 0.0199 0.0318[] 
  []
 
 
-Overfull \hbox (427.99237pt too wide) in paragraph at lines 305--305
+Overfull \hbox (427.99237pt too wide) in paragraph at lines 304--304
 []\T1/lmtt/m/n/10 ##  0.000000127 0.235 0.115 0.000000639 0.0000537 0.0000719 0
 .000000269 0.0000137 0.000000612 0.000000779 0.0000000054 0.146 0.000000331 0.0
 00000473 0.222 0.281 0.00000029[] 
@@ -655,16 +655,16 @@ File: ProjectNotebook_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (ty
 pe pdf)
 <use ProjectNotebook_files/figure-latex/unnamed-chunk-4-1.pdf>
 Package pdftex.def Info: ProjectNotebook_files/figure-latex/unnamed-chunk-4-1.p
-df  used on input line 307.
+df  used on input line 306.
 (pdftex.def)             Requested size: 440.66533pt x 283.06975pt.
 [3] [4 <./ProjectNotebook_files/figure-latex/unnamed-chunk-4-1.pdf>]
-Overfull \hbox (118.24327pt too wide) in paragraph at lines 372--372
+Overfull \hbox (118.24327pt too wide) in paragraph at lines 371--371
 []\T1/lmtt/m/n/10 ##  0.14 0.178 0.159 0.133 0.0884 0.00105 0.152 0.0021 0.0066
 4 0.0194 0.0176 0.0165 0.0152 0.0025 0.00974 0.0596[] 
  []
 
 
-Overfull \hbox (364.99255pt too wide) in paragraph at lines 372--372
+Overfull \hbox (364.99255pt too wide) in paragraph at lines 371--371
 []\T1/lmtt/m/n/10 ##  0.00000575 0.219 0.00292 0.0000537 0.0000306 0.0000303 0.
 000000535 0.000000384 0.00000939 0.0000176 0.00608 0.172 0.000173 0.00000641 0.
 262 0.337 0.0000132[] 
@@ -676,16 +676,16 @@ File: ProjectNotebook_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (ty
 pe pdf)
 <use ProjectNotebook_files/figure-latex/unnamed-chunk-5-1.pdf>
 Package pdftex.def Info: ProjectNotebook_files/figure-latex/unnamed-chunk-5-1.p
-df  used on input line 374.
+df  used on input line 373.
 (pdftex.def)             Requested size: 440.66533pt x 283.06975pt.
 [5 <./ProjectNotebook_files/figure-latex/unnamed-chunk-5-1.pdf>]
-Overfull \hbox (186.49307pt too wide) in paragraph at lines 430--430
+Overfull \hbox (186.49307pt too wide) in paragraph at lines 429--429
 []\T1/lmtt/m/n/10 ##  0.121 0.0888 0.0517 0.015 0.00501 0.388 0.015 0.00861 0.2
 98 0.000331 0.0042 0.000772 0.0029 0.0000185 0.0000343 0.0000556[] 
  []
 
 
-Overfull \hbox (270.49283pt too wide) in paragraph at lines 430--430
+Overfull \hbox (270.49283pt too wide) in paragraph at lines 429--429
 []\T1/lmtt/m/n/10 ##  0.00000648 0.18 0.0000262 0.0000122 0.000018 0.0000118 0.
 00496 0.0000341 0.0000255 0.00262 0.000137 0.00002 0.306 0.477 0.0298 0.0000069
 4[] 
@@ -697,16 +697,16 @@ File: ProjectNotebook_files/figure-latex/unnamed-chunk-6-1.pdf Graphic file (ty
 pe pdf)
 <use ProjectNotebook_files/figure-latex/unnamed-chunk-6-1.pdf>
 Package pdftex.def Info: ProjectNotebook_files/figure-latex/unnamed-chunk-6-1.p
-df  used on input line 432.
+df  used on input line 431.
 (pdftex.def)             Requested size: 440.66533pt x 283.06975pt.
 [6] [7 <./ProjectNotebook_files/figure-latex/unnamed-chunk-6-1.pdf>]
-Overfull \hbox (170.74312pt too wide) in paragraph at lines 488--488
+Overfull \hbox (170.74312pt too wide) in paragraph at lines 487--487
 []\T1/lmtt/m/n/10 ##  0.195 0.196 0.185 0.163 0.00632 0.152 0.0817 0.000169 0.0
 0515 0.00198 0.000662 0.00208 0.00694 0.00112 0.00052 0.00337[] 
  []
 
 
-Overfull \hbox (517.24211pt too wide) in paragraph at lines 488--488
+Overfull \hbox (517.24211pt too wide) in paragraph at lines 487--487
 []\T1/lmtt/m/n/10 ##  0.0000000374 0.000000468 0.000000213 0.000000295 0.000000
 0067 0.0000000067 2e-10 0.0000000194 0.0000000367 0.0000000294 0.000000644 0.00
 0000011 0.0000000629 0.0000000049 0.0000000976 1[] 
@@ -718,17 +718,17 @@ File: ProjectNotebook_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (ty
 pe pdf)
 <use ProjectNotebook_files/figure-latex/unnamed-chunk-7-1.pdf>
 Package pdftex.def Info: ProjectNotebook_files/figure-latex/unnamed-chunk-7-1.p
-df  used on input line 490.
+df  used on input line 489.
 (pdftex.def)             Requested size: 440.66533pt x 283.06975pt.
 [8 <./ProjectNotebook_files/figure-latex/unnamed-chunk-7-1.pdf>]
-Overfull \hbox (317.74269pt too wide) in paragraph at lines 546--546
+Overfull \hbox (317.74269pt too wide) in paragraph at lines 545--545
 []\T1/lmtt/m/n/10 ##  0.000759 0.00277 0.00137 0.000229 0.000000116 0.000000127
  0.000000245 0.0000000019 0.000000124 0.0134 0.098 0.66 0.223 0.0000167 0.00012
  0.0000575[] 
  []
 
 
-Overfull \hbox (107.7433pt too wide) in paragraph at lines 546--546
+Overfull \hbox (107.7433pt too wide) in paragraph at lines 545--545
 []\T1/lmtt/m/n/10 ##  0.137 0.0182 0.0172 0.0183 0.019 0.0138 0.137 0.467 0.024
  0.0192 0.018 0.0182 0.00818 0.0176 0.0183 0.0483[] 
  []
@@ -739,17 +739,17 @@ File: ProjectNotebook_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (ty
 pe pdf)
 <use ProjectNotebook_files/figure-latex/unnamed-chunk-8-1.pdf>
 Package pdftex.def Info: ProjectNotebook_files/figure-latex/unnamed-chunk-8-1.p
-df  used on input line 548.
+df  used on input line 547.
 (pdftex.def)             Requested size: 440.66533pt x 283.06975pt.
 [9] [10 <./ProjectNotebook_files/figure-latex/unnamed-chunk-8-1.pdf>]
-Overfull \hbox (270.49283pt too wide) in paragraph at lines 604--604
+Overfull \hbox (270.49283pt too wide) in paragraph at lines 603--603
 []\T1/lmtt/m/n/10 ##  0.0105 0.00106 0.000221 0.000231 0.0176 0.0309 0.00000006
 83 0.000000568 0.000000264 0.0141 0.0919 0.618 0.213 0.00269 0.000365 0.0000059
 5[] 
  []
 
 
-Overfull \hbox (170.74312pt too wide) in paragraph at lines 604--604
+Overfull \hbox (170.74312pt too wide) in paragraph at lines 603--603
 []\T1/lmtt/m/n/10 ##  0.00138 0.159 0.000637 0.00174 0.108 0.00158 0.114 0.0014
 3 0.00186 0.0241 0.0707 0.00207 0.00213 0.507 0.00297 0.00123[] 
  []
@@ -760,17 +760,17 @@ File: ProjectNotebook_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (ty
 pe pdf)
 <use ProjectNotebook_files/figure-latex/unnamed-chunk-9-1.pdf>
 Package pdftex.def Info: ProjectNotebook_files/figure-latex/unnamed-chunk-9-1.p
-df  used on input line 606.
+df  used on input line 605.
 (pdftex.def)             Requested size: 440.66533pt x 283.06975pt.
 [11 <./ProjectNotebook_files/figure-latex/unnamed-chunk-9-1.pdf>]
-Overfull \hbox (291.49277pt too wide) in paragraph at lines 662--662
+Overfull \hbox (291.49277pt too wide) in paragraph at lines 661--661
 []\T1/lmtt/m/n/10 ##  0.0239 0.00267 0.00904 0.00021 0.000000499 0.00000214 0.0
 00000173 0.031 0.000000331 0.0126 0.0919 0.619 0.209 0.00000176 0.0000635 0.000
 00155[] 
  []
 
 
-Overfull \hbox (238.99292pt too wide) in paragraph at lines 662--662
+Overfull \hbox (238.99292pt too wide) in paragraph at lines 661--661
 []\T1/lmtt/m/n/10 ##  0.000138 0.000551 0.0000373 0.0000122 0.245 0.00972 0.053
 6 0.000294 0.000279 0.000449 0.578 0.00028 0.000507 0.000267 0.11 0.000304[] 
  []
@@ -781,10 +781,10 @@ File: ProjectNotebook_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (t
 ype pdf)
 <use ProjectNotebook_files/figure-latex/unnamed-chunk-10-1.pdf>
 Package pdftex.def Info: ProjectNotebook_files/figure-latex/unnamed-chunk-10-1.
-pdf  used on input line 664.
+pdf  used on input line 663.
 (pdftex.def)             Requested size: 440.66533pt x 283.06975pt.
 [12]
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 705
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 704
 .
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -795,7 +795,7 @@ File: ProjectNotebook_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (t
 ype pdf)
 <use ProjectNotebook_files/figure-latex/unnamed-chunk-12-1.pdf>
 Package pdftex.def Info: ProjectNotebook_files/figure-latex/unnamed-chunk-12-1.
-pdf  used on input line 755.
+pdf  used on input line 754.
 (pdftex.def)             Requested size: 437.6406pt x 291.09122pt.
 [14]
 <ProjectNotebook_files/figure-latex/unnamed-chunk-13-1.pdf, id=156, 437.635pt x
@@ -804,7 +804,7 @@ File: ProjectNotebook_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (t
 ype pdf)
 <use ProjectNotebook_files/figure-latex/unnamed-chunk-13-1.pdf>
 Package pdftex.def Info: ProjectNotebook_files/figure-latex/unnamed-chunk-13-1.
-pdf  used on input line 772.
+pdf  used on input line 771.
 (pdftex.def)             Requested size: 437.6406pt x 291.09122pt.
 [15 <./ProjectNotebook_files/figure-latex/unnamed-chunk-12-1.pdf>]
 <ProjectNotebook_files/figure-latex/unnamed-chunk-14-1.pdf, id=168, 437.635pt x
@@ -813,7 +813,7 @@ File: ProjectNotebook_files/figure-latex/unnamed-chunk-14-1.pdf Graphic file (t
 ype pdf)
 <use ProjectNotebook_files/figure-latex/unnamed-chunk-14-1.pdf>
 Package pdftex.def Info: ProjectNotebook_files/figure-latex/unnamed-chunk-14-1.
-pdf  used on input line 789.
+pdf  used on input line 788.
 (pdftex.def)             Requested size: 437.6406pt x 291.09122pt.
 [16 <./ProjectNotebook_files/figure-latex/unnamed-chunk-13-1.pdf>]
 <ProjectNotebook_files/figure-latex/unnamed-chunk-15-1.pdf, id=180, 437.635pt x
@@ -822,7 +822,7 @@ File: ProjectNotebook_files/figure-latex/unnamed-chunk-15-1.pdf Graphic file (t
 ype pdf)
 <use ProjectNotebook_files/figure-latex/unnamed-chunk-15-1.pdf>
 Package pdftex.def Info: ProjectNotebook_files/figure-latex/unnamed-chunk-15-1.
-pdf  used on input line 806.
+pdf  used on input line 805.
 (pdftex.def)             Requested size: 437.6406pt x 291.09122pt.
 [17 <./ProjectNotebook_files/figure-latex/unnamed-chunk-14-1.pdf>]
 <ProjectNotebook_files/figure-latex/unnamed-chunk-16-1.pdf, id=192, 437.635pt x
@@ -831,7 +831,7 @@ File: ProjectNotebook_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (t
 ype pdf)
 <use ProjectNotebook_files/figure-latex/unnamed-chunk-16-1.pdf>
 Package pdftex.def Info: ProjectNotebook_files/figure-latex/unnamed-chunk-16-1.
-pdf  used on input line 823.
+pdf  used on input line 822.
 (pdftex.def)             Requested size: 437.6406pt x 291.09122pt.
 [18 <./ProjectNotebook_files/figure-latex/unnamed-chunk-15-1.pdf>]
 <ProjectNotebook_files/figure-latex/unnamed-chunk-17-1.pdf, id=204, 437.635pt x
@@ -840,7 +840,7 @@ File: ProjectNotebook_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (t
 ype pdf)
 <use ProjectNotebook_files/figure-latex/unnamed-chunk-17-1.pdf>
 Package pdftex.def Info: ProjectNotebook_files/figure-latex/unnamed-chunk-17-1.
-pdf  used on input line 840.
+pdf  used on input line 839.
 (pdftex.def)             Requested size: 437.6406pt x 291.09122pt.
 [19 <./ProjectNotebook_files/figure-latex/unnamed-chunk-16-1.pdf>]
 <ProjectNotebook_files/figure-latex/unnamed-chunk-18-1.pdf, id=217, 437.635pt x
@@ -849,7 +849,7 @@ File: ProjectNotebook_files/figure-latex/unnamed-chunk-18-1.pdf Graphic file (t
 ype pdf)
 <use ProjectNotebook_files/figure-latex/unnamed-chunk-18-1.pdf>
 Package pdftex.def Info: ProjectNotebook_files/figure-latex/unnamed-chunk-18-1.
-pdf  used on input line 857.
+pdf  used on input line 856.
 (pdftex.def)             Requested size: 437.6406pt x 291.09122pt.
 [20 <./ProjectNotebook_files/figure-latex/unnamed-chunk-17-1.pdf>]
 <ProjectNotebook_files/figure-latex/unnamed-chunk-19-1.pdf, id=229, 437.635pt x
@@ -858,7 +858,7 @@ File: ProjectNotebook_files/figure-latex/unnamed-chunk-19-1.pdf Graphic file (t
 ype pdf)
 <use ProjectNotebook_files/figure-latex/unnamed-chunk-19-1.pdf>
 Package pdftex.def Info: ProjectNotebook_files/figure-latex/unnamed-chunk-19-1.
-pdf  used on input line 874.
+pdf  used on input line 873.
 (pdftex.def)             Requested size: 437.6406pt x 291.09122pt.
 [21 <./ProjectNotebook_files/figure-latex/unnamed-chunk-18-1.pdf>]
 <ProjectNotebook_files/figure-latex/unnamed-chunk-20-1.pdf, id=241, 437.635pt x
@@ -867,24 +867,33 @@ File: ProjectNotebook_files/figure-latex/unnamed-chunk-20-1.pdf Graphic file (t
 ype pdf)
 <use ProjectNotebook_files/figure-latex/unnamed-chunk-20-1.pdf>
 Package pdftex.def Info: ProjectNotebook_files/figure-latex/unnamed-chunk-20-1.
-pdf  used on input line 891.
+pdf  used on input line 890.
 (pdftex.def)             Requested size: 437.6406pt x 291.09122pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 893.
-[22 <./ProjectNotebook_files/figure-latex/unnamed-chunk-19-1.pdf>] [23 <./Proje
-ctNotebook_files/figure-latex/unnamed-chunk-20-1.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 893.
+[22 <./ProjectNotebook_files/figure-latex/unnamed-chunk-19-1.pdf>]
+<ProjectNotebook_files/figure-latex/unnamed-chunk-21-1.pdf, id=253, 453.695pt x
+ 315.1775pt>
+File: ProjectNotebook_files/figure-latex/unnamed-chunk-21-1.pdf Graphic file (t
+ype pdf)
+<use ProjectNotebook_files/figure-latex/unnamed-chunk-21-1.pdf>
+Package pdftex.def Info: ProjectNotebook_files/figure-latex/unnamed-chunk-21-1.
+pdf  used on input line 913.
+(pdftex.def)             Requested size: 453.6939pt x 315.17673pt.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 915.
+[23 <./ProjectNotebook_files/figure-latex/unnamed-chunk-20-1.pdf>] [24 <./Proje
+ctNotebook_files/figure-latex/unnamed-chunk-21-1.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 915.
 (./ProjectNotebook.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 893.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 893.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 915.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 915.
 Package rerunfilecheck Info: File `ProjectNotebook.out' has not changed.
 (rerunfilecheck)             Checksum: AF3181F8CCD40379BC766A3765A45875;493.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 893.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 915.
  ) 
 Here is how much of TeX's memory you used:
- 12746 strings out of 492649
- 188525 string characters out of 6129622
+ 12751 strings out of 492649
+ 188807 string characters out of 6129622
  300711 words of memory out of 5000000
- 16465 multiletter control sequences out of 15000+600000
+ 16469 multiletter control sequences out of 15000+600000
  31526 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  32i,5n,38p,909b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -896,10 +905,10 @@ e1/public/lm/lmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/l
 m/lmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmtk10.pf
 b></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/lo
 cal/texlive/2018/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on ProjectNotebook.pdf (23 pages, 274621 bytes).
+Output written on ProjectNotebook.pdf (24 pages, 281295 bytes).
 PDF statistics:
- 301 PDF objects out of 1000 (max. 8388607)
- 218 compressed objects within 3 object streams
- 32 named destinations out of 1000 (max. 500000)
- 6257 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 313 PDF objects out of 1000 (max. 8388607)
+ 226 compressed objects within 3 object streams
+ 33 named destinations out of 1000 (max. 500000)
+ 6262 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -2,7 +2,6 @@
 title: "R Notebook"
 output:
   pdf_document: default
-  html_notebook: default
 ---
 
 ```{r}
@@ -102,8 +101,7 @@ replicate <- function(
   
   path.plot(synth.res=out, dataprep.res=prep,
             Ylab="Log GDP per capita", Legend=c(fullname, "Synthetic Counterfactual"), tr.intake=tr2,
-            Ylim=c(low,high) , Main=fullname
-  )
+            Ylim=c(low,high) , Main=fullname)
   
 }
 ```
@@ -229,7 +227,6 @@ impact <- show_impact_n('Chad', '1980', '2005', '1990')
 plot(impact) + ggtitle("In-space placebo (Chad)")
 ```
 
-
 ```{r}
 impact <- show_impact_n('Nigeria', '1980', '2005', '1990')
 plot(impact) + ggtitle("In-space placebo (Nigeria)")
@@ -244,3 +241,24 @@ plot(impact) + ggtitle("In-space placebo (Burundi)")
 impact <- show_impact_n('Togo', '1980', '2005', '1990')
 plot(impact) + ggtitle("In-space placebo (Togo)")
 ```
+
+```{r}
+foo <- afripanel
+foo$year <- as.Date(as.character(foo$year), '%Y')
+
+foo <- foo[which(foo$year >= as.Date('1980', '%Y') & foo$year <= as.Date('2005', '%Y')),]
+
+mali_data <- foo[which(foo$Country == 'Mali'), ]
+
+controls <- c('Burkina Faso', 'Chad', 'Nigeria', 'Togo', 'Burundi')
+
+control_data <- foo[foo$Country %in% controls,]
+
+ggplot(mali_data, aes(year, lngdpmad, color=Country)) + 
+  geom_line(size = 2) +
+  geom_line(data = control_data, linetype = 'dotted') +
+  geom_vline(xintercept = as.Date('1991', '%Y'), linetype='dashed') +
+  ggtitle('A comparison of Mali to the controls used to form its synthetic control')
+ 
+```
+
