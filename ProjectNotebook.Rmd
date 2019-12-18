@@ -1,7 +1,7 @@
 ---
 title: "R Notebook"
 output:
-  html_notebook: default
+  pdf_document: default
 ---
 
 ```{r}
@@ -221,3 +221,24 @@ plot(impact)+ggtitle("In-time placebo (Mali)")
 impact <- show_impact_n('Burkina Faso', '1980', '2005', '1990')
 plot(impact)+ggtitle("In-space placebo (Burkina Faso)")
 ```
+
+```{r}
+foo <- afripanel
+foo$year <- as.Date(as.character(foo$year), '%Y')
+
+foo <- foo[which(foo$year >= as.Date('1980', '%Y') & foo$year <= as.Date('2005', '%Y')),]
+
+mali_data <- foo[which(foo$Country == 'Mali'), ]
+
+controls <- c('Burkina Faso', 'Chad', 'Nigeria', 'Togo', 'Burundi')
+
+control_data <- foo[foo$Country %in% controls,]
+
+ggplot(mali_data, aes(year, lngdpmad, color=Country)) + 
+  geom_line(size = 2) +
+  geom_line(data = control_data, linetype = 'dotted') +
+  geom_vline(xintercept = as.Date('1991', '%Y'), linetype='dashed') +
+  ggtitle('A comparison of Mali to the controls used to form its synthetic control')
+ 
+```
+
